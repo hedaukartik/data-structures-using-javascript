@@ -54,14 +54,38 @@ class LinkedList {
 	reverseList() {
 		let prev = null;
 		let next = null;
-		let tail = this.head;
-		while (tail !== null) {
-			next = tail.next;
-			tail.next = prev;
-			prev = tail;
-			tail = next;
+		let current = this.head;
+		while (current !== null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
 		}
 		this.head = prev;
+	}
+
+	rotateByK(k, head = this.head) {
+		// Reverse a Linked List in groups of given size using Javascript
+		let prev = null;
+		let next = null;
+		let current = head;
+		let iterator = 0;
+		while (iterator < k && current !== null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+			++iterator;
+		}
+		if (next !== null) {
+			head.next = this.rotateByK(k, next);
+		}
+		return prev;
+	}
+
+	printRotateByK(k) {
+		const node = this.rotateByK(k);
+		this.head = node;
 	}
 
 	print() {
