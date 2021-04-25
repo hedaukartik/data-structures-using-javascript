@@ -10,7 +10,7 @@ console.log(ll.print());
 // console.log(ll.print());
 // const rotateK = ll.rotateByK(2);
 // console.log(JSON.stringify(rotateK));
-ll.printRotateByK(3);
+ll.printReverseByK(3);
 console.log(ll.print());
 
 console.log(LinkedList.fromValues(10, 20, 30).print());
