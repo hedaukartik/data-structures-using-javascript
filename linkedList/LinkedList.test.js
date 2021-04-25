@@ -129,6 +129,40 @@ describe("#reverseLinkedList", () => {
 	});
 });
 
+describe("#Rotate a Linked List", () => {
+	test("rotate on empty linkedList", () => {
+		const ll = LinkedList.fromValues();
+		expect(ll.rotateAfterK(1)).toBeUndefined();
+	});
+	test("rotate linkedList by 1", () => {
+		const ll = LinkedList.fromValues(10, 20, 30);
+		ll.rotateAfterK(1);
+		expect(ll.head.val).toBe(20);
+	});
+	test("rotate linkedList by 3", () => {
+		const ll = LinkedList.fromValues(10, 20, 30);
+		ll.rotateAfterK(3);
+		expect(ll.head.val).toBe(10);
+	});
+});
+
+describe("#Reverse a Linked List in groups of given size", () => {
+	test("reverse on empty linkedList", () => {
+		const ll = LinkedList.fromValues();
+		expect(ll.reverseByK(2)).toBeNull();
+	});
+	test("reverse linkedList by 2", () => {
+		const ll = LinkedList.fromValues(10, 20, 30, 40);
+		ll.printReverseByK(2);
+		expect(ll.head.val).toBe(20);
+	});
+	test("rotate linkedList by 3", () => {
+		const ll = LinkedList.fromValues(10, 20, 30, 40);
+		ll.printReverseByK(3);
+		expect(ll.head.val).toBe(30);
+	});
+});
+
 describe("#printLinkedList", () => {
 	test("print empty string if head is null", () => {
 		const ll = LinkedList.fromValues();

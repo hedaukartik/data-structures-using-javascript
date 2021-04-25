@@ -12,5 +12,6 @@ console.log(ll.print());
 // console.log(JSON.stringify(rotateK));
 ll.printReverseByK(3);
 console.log(ll.print());
-
+ll.rotateAfterK(1);
+console.log(ll.print());
 console.log(LinkedList.fromValues(10, 20, 30).print());

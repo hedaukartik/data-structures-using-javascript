@@ -88,6 +88,36 @@ class LinkedList {
 		this.head = node;
 	}
 
+	rotateAfterK(k) {
+		if (k === 0) return;
+		let current = this.head;
+		let iterator = 1;
+		while (iterator < k && current !== null) {
+			current = current.next;
+			iterator++;
+		}
+		// if current is NULL, k is greater than or equal to count of nodes in Linked List. Dont change the list in this case
+		if (current == null) {
+			return;
+		}
+
+		// current point to KthNode. Store it in a variable.
+		// KthNode point to node k position value.
+		let kthNode = current;
+
+		// get the current till last element
+		while (current.next !== null) {
+			current = current.next;
+		}
+
+		// assign last element next to head
+		current.next = this.head;
+
+		// change head to (k+1)th node
+		this.head = kthNode.next;
+		kthNode.next = null;
+	}
+
 	print() {
 		let output = "";
 		if (!this.head) {
